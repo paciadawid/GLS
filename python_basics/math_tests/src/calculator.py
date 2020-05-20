@@ -4,16 +4,24 @@ class Calculator:
         pass
 
     def add(self, a, b):
-        return a + b
+        if type in [int, float]:
+            return a + b
+        return False
 
     def sub(self, a, b):
-        return a - b
+        if type in [int, float]:
+            return a - b
+        return False
 
     def div(self, a, b):
-        return a / b
+        if type in [int, float] or b != 0:
+            return a / b
+        return False
 
     def mul(self, a, b):
-        return a * b
+        if type in [int, float]:
+            return a * b
+        return False
 
 
 if __name__ == "__main__":
