@@ -9,6 +9,7 @@ verify_ssl = true
 selenium = "*"
 unittest2 = "*"
 pyhamcrest = "*"
+webdriver-manager = "*"
 
 [requires]
 python_version = "3.8"
