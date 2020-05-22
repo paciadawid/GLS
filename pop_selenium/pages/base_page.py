@@ -14,14 +14,13 @@ class BasePage:  # equal to class BasePage(object)
     def hover_element(self, by_method: By, value: str, name=None):
         if name:
             value = value.format(name)
-        sleep(0.5)
-        print(value)
-        product = self.driver.find_element(by_method, value)
-        sleep(0.5)
-        hover = ActionChains(self.driver).move_to_element(product)
-        sleep(0.5)
-        hover.perform()
-        sleep(0.5)
+
+        for i in range(5):
+            print(value)
+            product = self.driver.find_element(by_method, value)
+            hover = ActionChains(self.driver).move_to_element(product)
+            hover.perform()
+            value += "//.."
 
     def wait_until_visible(self, by_method: By, value: str):
         WebDriverWait(self.driver, 10).until(
