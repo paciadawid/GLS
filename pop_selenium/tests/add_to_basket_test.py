@@ -11,6 +11,7 @@ class TestAddToBasket(unittest.TestCase):
 
     def setUp(self):
         option = webdriver.FirefoxOptions()
+        # option.add_argument("--headless")
         self.driver = webdriver.Firefox(options=option, executable_path=GeckoDriverManager().install())
         self.driver.maximize_window()
         self.driver.get("http://automationpractice.com/")
@@ -25,7 +26,7 @@ class TestAddToBasket(unittest.TestCase):
         total_price = self.summary_page.get_total_price()
         shipping_price = self.summary_page.get_shipping_price()
 
-        assert_that(total_price, less_than_or_equal_to(20))
+        assert_that(total_price, less_than_or_equal_to(30))
         assert_that(shipping_price, equal_to(2))
 
     def tearDown(self):
