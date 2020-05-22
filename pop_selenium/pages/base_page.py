@@ -3,7 +3,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from time import sleep
 
 
 class BasePage:  # equal to class BasePage(object)
@@ -15,8 +14,8 @@ class BasePage:  # equal to class BasePage(object)
         if name:
             value = value.format(name)
 
+        # workaround for Firefox driver
         for i in range(5):
-            print(value)
             product = self.driver.find_element(by_method, value)
             hover = ActionChains(self.driver).move_to_element(product)
             hover.perform()

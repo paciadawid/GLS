@@ -6,7 +6,7 @@ class SearchPage(BasePage):
 
     product_element = (By.XPATH, "//div[@class='right-block']//a[@class='product-name'][contains(text(),'{}')]")
     add_to_cart_button = (By.XPATH, "//*[@title='Add to cart']")
-    proceed_button = (By.XPATH, "//*[@title='Proceed to checkout']")
+    proceed_button = (By.XPATH, "//*[@class='shopping_cart']/a")
     continue_button = (By.XPATH, "//*[@title='Continue shopping']")
 
     def add_to_basket(self, name=None):

@@ -39,15 +39,15 @@ class TestAddToBasket(unittest.TestCase):
         for product in product_list:
             self.home_page.search_item(product)
             self.search_page.add_to_basket(product)
+        self.search_page.proceed_to_checkout()
 
         total_price = self.summary_page.get_total_price()
         shipping_price = self.summary_page.get_shipping_price()
 
-        assert_that(total_price, less_than_or_equal_to(30))
+        assert_that(total_price, less_than_or_equal_to(200))
         assert_that(shipping_price, equal_to(2))
 
     def tearDown(self):
-        pass
         self.driver.quit()
 
 
